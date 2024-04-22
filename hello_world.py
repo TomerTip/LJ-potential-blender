@@ -58,7 +58,7 @@ def gravity():
 # Example usage
 OBJECTS = []
 CUBE = Cube("my_cube", size=2, x=0, y=5, z=10)
-SPHERE = Sphere("my_sphere", size=3, x=0, y=0, z=10)
+SPHERE = Sphere("my_sphere", size=2, x=0, y=0, z=10)
 OBJECTS.append(CUBE)
 OBJECTS.append(SPHERE)
 
