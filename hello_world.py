@@ -15,7 +15,7 @@ class Body:
             bpy.ops.object.delete()
             # If it doesn't exist, create a new shape primitive
         
-        self.create_primitive(size, (x, y, size + z))
+        self.create_primitive(size, (x, y, z))
 
         self.obj = bpy.data.objects.get(self.name)
 
@@ -55,12 +55,22 @@ def gravity():
             object.move_location(z=dz)
 
     return TICK # Seconds
+
+
+def apply_velocity(body, x=0, y=0, z=0):
+    body.move_location(x, y, z)
+
+    return TICK # Seconds
+
+
 # Example usage
 OBJECTS = []
-CUBE = Cube("my_cube", size=2, x=0, y=5, z=10)
-SPHERE = Sphere("my_sphere", size=2, x=0, y=0, z=10)
-OBJECTS.append(CUBE)
-OBJECTS.append(SPHERE)
+P1 = Sphere("p1", size=2, x=0, y=5, z=0)
+P2 = Sphere("p2", size=2, x=0, y=0, z=0)
+OBJECTS.append(P1)
+OBJECTS.append(P2)
 
 
 bpy.app.timers.register(gravity)
+bpy.app.timers.register(lambda: apply_velocity(P1, y=-0.01))
+bpy.app.timers.register(lambda: apply_velocity(P2, y=0.01))
