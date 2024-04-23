@@ -1,4 +1,4 @@
-# LJ Intermolecular Simulation in Blender
+# LJ Intermolecular Potential Simulation in Blender
 ![](docs/particles.gif)
 
 ![U(r)](docs/potential.png)
